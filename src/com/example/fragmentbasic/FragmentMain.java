@@ -9,6 +9,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,7 +22,15 @@ import android.widget.TextView;
 
 
 public class FragmentMain extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
-    // Fragment managing the behaviors, interactions and presentation of the navigation drawer.
+
+	private static final String TAG = "FragmentMain";
+	private static final int CASE_HOME = 0;
+	private static final int CASE_MAIL = 1;
+	private static final int CASE_SETTING = 2;
+	private static final int CASE_TCXO = 3;
+	private static final int CASE_GPS = 4;
+	
+	// Fragment managing the behaviors, interactions and presentation of the navigation drawer.
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     // Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -44,16 +53,27 @@ public class FragmentMain extends Activity implements NavigationDrawerFragment.N
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
         //fragmentManager.beginTransaction().replace(R.id.container, PlaceholderFragment.newInstance(position + 1)).commit();
-
-        if (position == 0) {
-            fragmentManager.beginTransaction().replace(R.id.container, HomeFragment.newInstance()).commit();
-        } else if (position == 1) {
-            fragmentManager.beginTransaction().replace(R.id.container, MailFragment.newInstance()).commit();
-        } else if (position == 2) {
-            fragmentManager.beginTransaction().replace(R.id.container, SettingsFragment.newInstance()).commit();
+        
+        switch(position) {
+        	case CASE_HOME:
+        		fragmentManager.beginTransaction().replace(R.id.container, HomeFragment.newInstance()).commit();
+        		break;
+        	case CASE_MAIL:
+        		fragmentManager.beginTransaction().replace(R.id.container, MailFragment.newInstance()).commit();
+        		break;
+        	case CASE_SETTING:
+        		fragmentManager.beginTransaction().replace(R.id.container, SettingsFragment.newInstance()).commit();
+        		break;
+        	case CASE_TCXO:
+        		fragmentManager.beginTransaction().replace(R.id.container, TcxoFragment.newInstance()).commit();
+        		break;
+        		
+        	default:
+        		Log("Should be not here");
+        		
         }
     }
-
+    
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
@@ -96,6 +116,10 @@ public class FragmentMain extends Activity implements NavigationDrawerFragment.N
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    public void Log(String str) {
+    	Log.d(TAG, str);
     }
 
 

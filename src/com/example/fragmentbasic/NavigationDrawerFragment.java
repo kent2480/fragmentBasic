@@ -116,8 +116,15 @@ public class NavigationDrawerFragment extends Fragment {
         //mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         //return mDrawerListView;
         
-        titles = new String[] { getString(R.string.title_section1),  getString(R.string.title_section2), getString(R.string.title_section3) };  
-        images = new int[] { R.drawable.home_2, R.drawable.mail_1, R.drawable.settings_1 };  
+        titles = new String[] { getString(R.string.title_section1),  
+        		                getString(R.string.title_section2), 
+        		                getString(R.string.title_section3),  
+                                getString(R.string.title_section4) };  
+        images = new int[] { R.drawable.home_2, 
+        		             R.drawable.mail_1, 
+        		             R.drawable.settings_1, 
+        		             R.drawable.settings_1 };
+        
         selectedposition = new int[] { mCurrentSelectedPosition };  
               
         mMyDrawerAdapter = new MyDrawerAdapter(getActivity(), titles, images, selectedposition);  

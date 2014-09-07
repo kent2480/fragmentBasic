@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">fragmentRelate</string>
+    <string name="app_name">KentFragment</string>
     <string name="title_section1">區塊 1</string>
     <string name="title_section2">區塊 2</string>
     <string name="title_section3">區塊 3</string>
+    <string name="title_section4">GPS TCXO</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
